@@ -1,0 +1,131 @@
+---
+title: "Task2"
+author: "Oleksandra Ustymenko"
+date: "10/01/2024"
+format:
+  html:
+    embed-resources: true
+editor: source
+---
+
+## Question 1 
+Question description
+Create the next random vector:
+
+```{r message=FALSE}
+v <- rnorm(50)
+```
+
+For the vector print:
+
+- 10th item,
+- items from 10th to 20th (including 20th item),
+- 10 items starting from 5th,
+- all items bigger than 0,
+- last 5 items
+
+```{r}
+# code for solving task 
+# Generate a random vector of 50 elements
+v <- rnorm(50)
+
+# Print the 10th item
+v[10]
+
+# Print items from 10th to 20th (including the 20th item)
+v[10:20]
+
+# Print 10 items starting from the 5th
+v[5:(5+9)]
+
+# Print all items bigger than 0
+v[v > 0]
+
+# Print the last 5 items
+v[(length(v)-4):length(v)]
+```
+## Question 2
+Question description
+Create the next data frame:
+
+```{r message=FALSE}
+df <- 
+  data.frame(a = rnorm(50), b = 1:50, 
+             cc = sample(letters, 50, replace = TRUE))
+
+```
+
+For the data frame find and print:
+
+- the last 10 rows,
+- 15th item of columns `cc`,
+- subset columns `a` and `b` and rows from 10th to 20th (including 20th),
+- a new vector from column `b`.
+```{r}
+# code for solving task 
+# Create the data frame
+df <- data.frame(a = rnorm(50), b = 1:50, cc = sample(letters, 50, replace = TRUE))
+
+# Print the last 10 rows
+tail(df, 10)
+
+# Print the 15th item of column 'cc'
+df$cc[15]
+
+# Subset columns 'a' and 'b', and rows from 10th to 20th (including 20th)
+df[10:20, c("a", "b")]
+
+# Create a new vector from column 'b'
+new_vector_b <- df$b
+new_vector_b
+```
+## Question 3
+Question description
+Create the next random vector:
+
+```{r}
+v_na <- rnorm(30)
+num_na <- sample(10, 1)
+v_na[sample(30, num_na)] <- NA
+```
+
+For this vector:
+
+- print all not NA items,
+- find how many NA values the vector has,
+- find `min` `max` and `mean` for the vector.
+```{r}
+# code for solving task 
+# Create the random vector
+set.seed(123)  # Set seed for reproducibility (optional)
+v_na <- rnorm(30)          # Generate 30 random values from a normal distribution
+num_na <- sample(10, 1)    # Randomly select the number of NA values
+v_na[sample(30, num_na)] <- NA  # Assign NA to random positions in the vector
+
+# 1. Print all non-NA items
+non_na_items <- v_na[!is.na(v_na)]
+print("Non-NA items in the vector:")
+print(non_na_items)
+
+# 2. Find how many NA values the vector has
+num_na_values <- sum(is.na(v_na))
+print(paste("Number of NA values in the vector:", num_na_values))
+
+# 3. Find the minimum, maximum, and mean of the vector (excluding NA values)
+min_value <- min(v_na, na.rm = TRUE)
+max_value <- max(v_na, na.rm = TRUE)
+mean_value <- mean(v_na, na.rm = TRUE)
+
+print(paste("Minimum value (excluding NA):", min_value))
+print(paste("Maximum value (excluding NA):", max_value))
+print(paste("Mean value (excluding NA):", mean_value))
+
+
+
+```
+
+
+
+
+
+
