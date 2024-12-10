@@ -1,0 +1,63 @@
+---
+title: "Task3"
+author: "Oleksandra Ustymenko"
+date: "10/01/2024"
+format:
+  html:
+    embed-resources: true
+editor: source
+---
+
+## Question 1 
+```{r}
+library(dplyr)
+```
+
+```{r}
+# 1. What are the column names of the data frame?
+colnames(airquality)
+```
+
+```{r}
+# 2. What are the row names of the data frame?
+rownames(airquality)
+```
+
+
+```{r}
+
+
+# 3. Extract the first 6 rows of the data frame and print them to the console
+head(airquality, 6)
+```
+
+```{r}
+# 4. How many observations (i.e. rows) are in this data frame?
+nrow(airquality)
+```
+
+```{r}
+# 5. Extract the last 6 rows of the data frame and print them to the console
+tail(airquality, 6)
+```
+
+
+```{r}
+# 6. How many missing values are in the "Ozone" column of this data frame?
+sum(is.na(airquality$Ozone))
+```
+
+```{r}
+
+# 7. What is the mean of the "Ozone" column in this dataset? Exclude missing values (coded as NA) from this calculation.
+mean(airquality$Ozone, na.rm = TRUE)
+```
+
+```{r}
+# Filter rows where Ozone > 31 and Temp > 90
+filtered_data <- airquality %>% filter(Ozone > 31, Temp > 90)
+
+# Print the filtered data
+print(filtered_data)
+
+```
